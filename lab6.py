@@ -1,7 +1,7 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Wed Oct 22 16:57:33 2025
 
-@author: 2474399
-"""
+import numpy as np
+import seaborn as sns
+import pandas as pd
 
+
+data = pd.read_csv("wdi_wide.csv")
