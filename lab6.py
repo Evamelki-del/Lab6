@@ -81,7 +81,6 @@ print(countries_over_80)
 
 #Question 1 
 
-
 # this is for plot one male
 sns.relplot(data=data,
             x="GNI per capita",
@@ -132,8 +131,44 @@ plt.ylabel("Life Expectancy (Female, years)")
 plt.show()
 
 # Question 3 
+#
+data["_GNIpc_bin"] = pd.qcut(data["GNI per capita"], q=8, duplicates="drop")
+data["_GNIpc_bin"] = data["_GNIpc_bin"].astype(str)
 
 
+# Male plot
+plt.figure(figsize=(8,5))
+sns.lineplot(
+    data=data,
+    x="_GNIpc_bin",
+    y="Life expectancy, male",
+    hue="Region",
+    estimator="mean",
+    errorbar="sd"
+)
+plt.title("GNI per capita vs Life Expectancy (Male) — by Region (±1 SD)")
+plt.xlabel("GNI per capita (binned)")
+plt.ylabel("Life Expectancy (Male, years)")
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
+plt.show()
+
+# Female plot
+plt.figure(figsize=(8,5))
+sns.lineplot(
+    data=data,
+    x="_GNIpc_bin",
+    y="Life expectancy, female",
+    hue="Region",
+    estimator="mean",
+    errorbar="sd"
+)
+plt.title("GNI per capita vs Life Expectancy (Female) — by Region (±1 SD)")
+plt.xlabel("GNI per capita (binned)")
+plt.ylabel("Life Expectancy (Female, years)")
+plt.xticks(rotation=45, ha="right")
+plt.tight_layout()
+plt.show()
 
 #Question 6a
 #Correlation between  Internet use and emissions per capita
