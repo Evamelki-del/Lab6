@@ -9,6 +9,13 @@ import matplotlib.pyplot as plt
 data = pd.read_csv("wdi_wide.csv")
 
 #Part 3
+data.info()
+# The null values for physician and population 
+missing_physicians = data["Physicians"].isna().sum()
+missing_population = data["Population"].isna().sum()
+
+print("\nEmpty values in 'Physicians':", missing_physicians)
+print("Empty values in 'Population':", missing_population)
 
 
 
