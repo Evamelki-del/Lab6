@@ -36,6 +36,18 @@ print(data.describe())
 
 data["GNI per capita"] = round(data["GNI"] / data ["Population"], 2)
 
+#part 7
+#Using value_counts() to print answers for a and b
+#a) How many countries are there in each region?
+countries_per_region = data["Region"].value_counts(dropna=False)
+print("Number of countries per region:")
+print(countries_per_region)
+
+#b) How many high income economies are there?
+high_income_count = data["High Income Economy"].value_counts()
+print("\nNumber of high and non-high income economies:")
+print(high_income_count)
+
 #Question 8
 #Relationship between the high income economies and their region
 
