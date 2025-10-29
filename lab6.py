@@ -59,6 +59,21 @@ row = HIE_vs_region.iloc[1]
 cols = row[row != 0].index   
 print(list(cols)) 
 
+#part 9 
+
+# Using a loop to count countries where women can expect to live for more than 80 years? and which countries those are?
+countries_over_80 = []
+count = 0
+
+for i, row in data.iterrows():
+    female_life = row["Life expectancy, female"]
+    if pd.notna(female_life) and female_life > 80:
+        countries_over_80.append(row["Country Name"])
+        count += 1
+
+print(f"There are {count} countries where women can expect to live more than 80 years.")
+print("These countries are:")
+print(countries_over_80)
 
 #Part 4
 
