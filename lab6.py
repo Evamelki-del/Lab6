@@ -208,8 +208,7 @@ plt.xscale("log")
 plt.show()
 
 #Question 5 
-# using replot to explore relationship between ecah thing i added a level of complexity extra for each region in my one plot.
-
+# using replot to explore relationship between female life expetancy and some other numerical feature.
 # Melt data to create a 'Gender' column
 life_expectancy = data.melt(
     id_vars=["Country Name", "Region", "GNI per capita", "Internet use", "Greenhouse gas emissions", "Physicians", "Population"],
@@ -221,7 +220,7 @@ life_expectancy = data.melt(
 # Clean the Gender column for readability
 life_expectancy["Gender"] = life_expectancy["Gender"].str.replace("Life expectancy, ", "")
 
-# 1️⃣ Internet use vs Life Expectancy
+# 1 Internet use vs Life Expectancy
 sns.relplot(
     data=life_expectancy,
     x="Internet use",
@@ -233,7 +232,7 @@ sns.relplot(
 plt.suptitle("Internet use vs Life Expectancy — Male vs Female", y=1.03)
 plt.show()
 
-# 2️⃣ GNI per capita vs Life Expectancy
+# 2 GNI per capita vs Life Expectancy
 sns.relplot(
     data=life_expectancy,
     x="GNI per capita",
@@ -246,7 +245,7 @@ plt.suptitle("GNI per capita vs Life Expectancy — Male vs Female", y=1.03)
 plt.xscale("log")
 plt.show()
 
-# 3️⃣ Greenhouse gas emissions vs Life Expectancy
+# 3 Greenhouse gas emissions vs Life Expectancy
 sns.relplot(
     data=life_expectancy,
     x="Greenhouse gas emissions",
@@ -258,7 +257,7 @@ sns.relplot(
 plt.suptitle("Greenhouse gas emissions vs Life Expectancy — Male vs Female", y=1.03)
 plt.show()
 
-# 4️⃣ Population vs Life Expectancy
+# 4 Population vs Life Expectancy
 sns.relplot(
     data=life_expectancy,
     x="Population",
@@ -271,7 +270,7 @@ plt.suptitle("Population vs Life Expectancy — Male vs Female", y=1.03)
 plt.xscale("log")
 plt.show()
 
-# 5️⃣ Physicians vs Life Expectancy
+# 5 Physicians vs Life Expectancy
 sns.relplot(
     data=life_expectancy,
     x="Physicians",
