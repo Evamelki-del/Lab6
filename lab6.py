@@ -24,6 +24,11 @@ print("Empty values in 'Population':", missing_population)
 
 print(data.nunique())
 
+#Question 5 
+#Printing further information about our data
+
+print(data.describe())
+
 #Question 6
 
 #Adding the "GNI per capita" column 
