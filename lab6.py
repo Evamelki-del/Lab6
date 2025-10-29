@@ -81,8 +81,6 @@ print(countries_over_80)
 
 #Question 1 
 
-if "GNI per capita" not in data.columns:
-    data["GNI per capita"] = data["GNI"] / data["Population"]
 
 # this is for plot one male
 sns.relplot(data=data,
@@ -103,8 +101,37 @@ plt.title("GNI per capita vs Life Expectancy (Female)")
 plt.xlabel("GNI per capita (USD)")
 plt.ylabel("Life Expectancy (Female, years)")
 plt.show()
+ 
+#Question 2 
+#adding the color 
 
+# Male plot
+sns.relplot(
+    data=data,
+    x="GNI per capita",
+    y="Life expectancy, male",
+    hue="Region",        # adds color for each region
+    kind="scatter"
+)
+plt.title("GNI per capita vs Life Expectancy (Male) by Region")
+plt.xlabel("GNI per capita (USD)")
+plt.ylabel("Life Expectancy (Male, years)")
+plt.show()
 
+# Female plot
+sns.relplot(
+    data=data,
+    x="GNI per capita",
+    y="Life expectancy, female",
+    hue="Region",        # same color encoding by region
+    kind="scatter"
+)
+plt.title("GNI per capita vs Life Expectancy (Female) by Region")
+plt.xlabel("GNI per capita (USD)")
+plt.ylabel("Life Expectancy (Female, years)")
+plt.show()
+
+# Question 3 
 
 
 
