@@ -207,6 +207,82 @@ plt.ylabel("Life Expectancy (Female, years)")
 plt.xscale("log")
 plt.show()
 
+#Question 5 
+# using replot to explore relationship between ecah thing i added a level of complexity extra for each region in my one plot.
+
+# Melt data to create a 'Gender' column
+life_expectancy = data.melt(
+    id_vars=["Country Name", "Region", "GNI per capita", "Internet use", "Greenhouse gas emissions", "Physicians", "Population"],
+    value_vars=["Life expectancy, male", "Life expectancy, female"],
+    var_name="Gender",
+    value_name="Life Expectancy"
+)
+
+# Clean the Gender column for readability
+life_expectancy["Gender"] = life_expectancy["Gender"].str.replace("Life expectancy, ", "")
+
+# 1️⃣ Internet use vs Life Expectancy
+sns.relplot(
+    data=life_expectancy,
+    x="Internet use",
+    y="Life Expectancy",
+    hue="Region",
+    col="Gender",
+    kind="scatter"
+)
+plt.suptitle("Internet use vs Life Expectancy — Male vs Female", y=1.03)
+plt.show()
+
+# 2️⃣ GNI per capita vs Life Expectancy
+sns.relplot(
+    data=life_expectancy,
+    x="GNI per capita",
+    y="Life Expectancy",
+    hue="Region",
+    col="Gender",
+    kind="scatter"
+)
+plt.suptitle("GNI per capita vs Life Expectancy — Male vs Female", y=1.03)
+plt.xscale("log")
+plt.show()
+
+# 3️⃣ Greenhouse gas emissions vs Life Expectancy
+sns.relplot(
+    data=life_expectancy,
+    x="Greenhouse gas emissions",
+    y="Life Expectancy",
+    hue="Region",
+    col="Gender",
+    kind="scatter"
+)
+plt.suptitle("Greenhouse gas emissions vs Life Expectancy — Male vs Female", y=1.03)
+plt.show()
+
+# 4️⃣ Population vs Life Expectancy
+sns.relplot(
+    data=life_expectancy,
+    x="Population",
+    y="Life Expectancy",
+    hue="Region",
+    col="Gender",
+    kind="scatter"
+)
+plt.suptitle("Population vs Life Expectancy — Male vs Female", y=1.03)
+plt.xscale("log")
+plt.show()
+
+# 5️⃣ Physicians vs Life Expectancy
+sns.relplot(
+    data=life_expectancy,
+    x="Physicians",
+    y="Life Expectancy",
+    hue="Region",
+    col="Gender",
+    kind="scatter"
+)
+plt.suptitle("Physicians vs Life Expectancy — Male vs Female", y=1.03)
+plt.show()
+
 #Question 6a
 #Correlation between  Internet use and emissions per capita
 
