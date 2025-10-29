@@ -9,6 +9,8 @@ import matplotlib.pyplot as plt
 data = pd.read_csv("wdi_wide.csv")
 
 #Part 3
+
+#Question 3 
 data.info()
 # The null values for physician and population 
 missing_physicians = data["Physicians"].isna().sum()
@@ -36,7 +38,7 @@ print(data.describe())
 
 data["GNI per capita"] = round(data["GNI"] / data ["Population"], 2)
 
-#part 7
+# Question  7
 #Using value_counts() to print answers for a and b
 #a) How many countries are there in each region?
 countries_per_region = data["Region"].value_counts(dropna=False)
@@ -59,7 +61,7 @@ row = HIE_vs_region.iloc[1]
 cols = row[row != 0].index   
 print(list(cols)) 
 
-#part 9 
+# Question 9 
 
 # Using a loop to count countries where women can expect to live for more than 80 years? and which countries those are?
 countries_over_80 = []
@@ -75,7 +77,34 @@ print(f"There are {count} countries where women can expect to live more than 80 
 print("These countries are:")
 print(countries_over_80)
 
-#Part 4
+#Part 4- Visualizing statistical relationships
+
+#Question 1 
+
+if "GNI per capita" not in data.columns:
+    data["GNI per capita"] = data["GNI"] / data["Population"]
+
+# this is for plot one male
+sns.relplot(data=data,
+            x="GNI per capita",
+            y="Life expectancy, male",
+            kind="scatter")
+plt.title("GNI per capita vs Life Expectancy (Male)")
+plt.xlabel("GNI per capita (USD)")
+plt.ylabel("Life Expectancy (Male, years)")
+plt.show()
+
+# this plot 2 for female
+sns.relplot(data=data,
+            x="GNI per capita",
+            y="Life expectancy, female",
+            kind="scatter")
+plt.title("GNI per capita vs Life Expectancy (Female)")
+plt.xlabel("GNI per capita (USD)")
+plt.ylabel("Life Expectancy (Female, years)")
+plt.show()
+
+
 
 
 
