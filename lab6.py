@@ -131,7 +131,7 @@ plt.ylabel("Life Expectancy (Female, years)")
 plt.show()
 
 # Question 3 
-#
+# Created bins  
 data["_GNIpc_bin"] = pd.qcut(data["GNI per capita"], q=8, duplicates="drop")
 data["_GNIpc_bin"] = data["_GNIpc_bin"].astype(str)
 
@@ -168,6 +168,43 @@ plt.xlabel("GNI per capita (binned)")
 plt.ylabel("Life Expectancy (Female, years)")
 plt.xticks(rotation=45, ha="right")
 plt.tight_layout()
+plt.show()
+
+
+#question 4 
+
+# Male regression
+sns.lmplot(
+    data=data,
+    x="GNI per capita",
+    y="Life expectancy, male",
+    hue="Region",
+    height=5,
+    aspect=1.2,
+    scatter_kws={"alpha":0.6, "s":50},
+    line_kws={"color":"black"}
+)
+plt.title("Linear Regression: GNI per capita vs Life Expectancy (Male)")
+plt.xlabel("GNI per capita (USD)")
+plt.ylabel("Life Expectancy (Male, years)")
+plt.xscale("log")  # optional, makes wide income range easier to read
+plt.show()
+
+# Female regression
+sns.lmplot(
+    data=data,
+    x="GNI per capita",
+    y="Life expectancy, female",
+    hue="Region",
+    height=5,
+    aspect=1.2,
+    scatter_kws={"alpha":0.6, "s":50},
+    line_kws={"color":"black"}
+)
+plt.title("Linear Regression: GNI per capita vs Life Expectancy (Female)")
+plt.xlabel("GNI per capita (USD)")
+plt.ylabel("Life Expectancy (Female, years)")
+plt.xscale("log")
 plt.show()
 
 #Question 6a
