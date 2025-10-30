@@ -220,7 +220,7 @@ life_expectancy = data.melt(
 # Clean the Gender column for readability
 life_expectancy["Gender"] = life_expectancy["Gender"].str.replace("Life expectancy, ", "")
 
-# 1 Internet use vs Life Expectancy
+#Question 5a Internet use vs Life Expectancy
 sns.relplot(
     data=life_expectancy,
     x="Internet use",
@@ -232,7 +232,7 @@ sns.relplot(
 plt.suptitle("Internet use vs Life Expectancy — Male vs Female", y=1.03)
 plt.show()
 
-# 2 GNI per capita vs Life Expectancy
+#Question 5b GNI per capita vs Life Expectancy
 sns.relplot(
     data=life_expectancy,
     x="GNI per capita",
@@ -245,7 +245,7 @@ plt.suptitle("GNI per capita vs Life Expectancy — Male vs Female", y=1.03)
 plt.xscale("log")
 plt.show()
 
-# 3 Greenhouse gas emissions vs Life Expectancy
+#Question 5c Greenhouse gas emissions vs Life Expectancy
 sns.relplot(
     data=life_expectancy,
     x="Greenhouse gas emissions",
@@ -257,7 +257,7 @@ sns.relplot(
 plt.suptitle("Greenhouse gas emissions vs Life Expectancy — Male vs Female", y=1.03)
 plt.show()
 
-# 4 Population vs Life Expectancy
+#Question 5d Population vs Life Expectancy
 sns.relplot(
     data=life_expectancy,
     x="Population",
@@ -270,7 +270,7 @@ plt.suptitle("Population vs Life Expectancy — Male vs Female", y=1.03)
 plt.xscale("log")
 plt.show()
 
-# 5 Physicians vs Life Expectancy
+#Question 5e Physicians vs Life Expectancy
 sns.relplot(
     data=life_expectancy,
     x="Physicians",
